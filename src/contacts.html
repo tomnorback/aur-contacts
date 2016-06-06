@@ -1,0 +1,20 @@
+<template>
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <input type="text" value.bind="searchString" class="form-control" id="fn" placeholder="Search Text">
+    <div repeat.for="contact of appstate.list" if.bind="search(contact, searchString)" click.trigger="details(contact, $index)">
+
+      <p class="org" if.bind="contact.orgs.length">${contact.orgs}</p>
+      <p class="name">
+        <span class="givenNames" if.bind="contact.givenNames.length">${contact.givenNames} </span>
+        <span class="familyNames" if.bind="contact.familyNames.length">${contact.familyNames}</span>
+        <span class="honorificSuffixes" if.bind="contact.honorificSuffixes.length">${contact.honorificSuffixes}</span>
+      </p>
+      <p class="tels" repeat.for="tel of contact.tels">
+        <span class="url">${tel.url}</span>
+        <span class="typestring" repeat.for="t of tel.type">${t}</span>
+      <p>
+      <hr>
+    </div>
+  </section>
+</template>

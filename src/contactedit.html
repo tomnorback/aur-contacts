@@ -1,0 +1,142 @@
+<template>
+
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <form role="form" submit.delegate="submit()">
+    <div class="form-group">
+
+    <label>Organization, Name</label>
+    <div class="editinput" repeat.for="o of worknode.orgs">
+      <div class="inputlabel">organization</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="organization">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.honorificPrefixes">
+      <div class="inputlabel">honorific prefix</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="honorific prefix">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.givenNames">
+      <div class="inputlabel">first name</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="first name">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.additionalNames">
+      <div class="inputlabel">middle name</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="middle name">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.familyNames">
+      <div class="inputlabel">last name</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="last name">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.honorificSuffixes">
+      <div class="inputlabel">honorific suffix</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="honorific suffix">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.nicknames">
+      <div class="inputlabel">nickname</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="nickname">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.roles">
+      <div class="inputlabel">role</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="role">
+    </div>
+    <div class="editinput" repeat.for="o of worknode.notes">
+      <div class="inputlabel">note</div>
+      <input type="text"  value.bind="o" class="form-control" placeholder="note">
+    </div>
+   
+
+
+
+    <div if.bind="worknode.bdays.length">
+      <label>Dates</label>
+      <div repeat.for="o of worknode.bdays">
+        <input type="text"  value.bind="o.date" class="form-control" placeholder="YYYY-MM-DD">
+        <div class="typeset">
+          <div class="typebox" repeat.for="type of bdaytypes">
+            <label>
+              <input type="checkbox" checked.bind="o.type" value.bind="type" />
+              <p class="typestring">${type}</p>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+      <div if.bind="worknode.tels.length">
+        <label>Telephones</label>
+        <div class="editinputtyped" repeat.for="tel of worknode.tels">
+          
+          <div class="typeset">
+            <div class="typebox" repeat.for="type of phonetypes">
+              <label class="typeboxlabel">
+                <input type="checkbox" checked.bind="tel.type" value.bind="type" />
+                <p class="typestring">${type}</p>
+              </label>
+            </div>
+          </div>
+        <input type="text" value.bind="tel.url" class="form-control" placeholder="telephone number">
+        </div>
+      </div>
+
+
+      <div if.bind="worknode.emails.length">
+        <label>Email</label>
+        <div repeat.for="email of worknode.emails">
+          <input type="text" value.bind="email.url" class="form-control" placeholder="email address">
+          <div class="typeset">
+            <div class="typebox" repeat.for="type of emailtypes">
+              <label>
+                <input type="checkbox" checked.bind="email.type" value.bind="type" />
+                <p class="typestring">${type}</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div if.bind="worknode.adrs.length">
+        <label>Addresses</label>
+        <div repeat.for="adr of worknode.adrs">
+
+          <div class="editinput">
+            <div class="inputlabel">ext. address</div>
+            <input type="text"  value.bind="adr.extendedAddress" class="form-control" placeholder="apt, suite, pobox, etc.">
+          </div>
+          <div class="editinput">
+            <div class="inputlabel">street address</div>
+            <input type="text"  value.bind="adr.streetAddress" class="form-control" placeholder="street address">
+          </div>
+           <div class="editinput">
+            <div class="inputlabel">city</div>
+            <input type="text"  value.bind="adr.locality" class="form-control" placeholder="city, locality">
+          </div>
+           <div class="editinput">
+            <div class="inputlabel">state</div>
+            <input type="text"  value.bind="adr.region" class="form-control" placeholder="state, region">
+          </div>
+           <div class="editinput">
+            <div class="inputlabel">zip code</div>
+            <input type="text"  value.bind="adr.postalCode" class="form-control" placeholder="zip, postal code">
+          </div>
+           <div class="editinput">
+            <div class="inputlabel">country</div>
+            <input type="text"  value.bind="adr.country" class="form-control" placeholder="country">
+          </div>
+          <div class="typeset">
+            <div class="typebox" repeat.for="type of adrtypes">
+              <label>
+                <input type="checkbox" checked.bind="adr.type" value.bind="type" />
+                <p class="typestring">${type}</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </section>
+</template>

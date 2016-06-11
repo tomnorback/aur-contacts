@@ -183,6 +183,7 @@ div.au-stagger {
   color: #888;
 }
 .typeset {
+  padding-left: .5em;
   flex: 5;
   max-width: 22em;
   display: flex;
@@ -198,6 +199,7 @@ div.au-stagger {
 }
 
 .editinput, .editinputtyped {
+  max-width: 30em;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;

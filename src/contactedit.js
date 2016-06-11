@@ -8,7 +8,8 @@ export class Contactedit {
   constructor(appstate){
     this.heading = 'Contact Edit';
     this.appstate = appstate;
-    this.worknode = null;
+    this.editnode = null;
+    this.reversioncopy = null;
     this.phonetypes = ['home', 'work', 'pref', 'cell', 'fax', 'pager'];
     this.emailtypes = ['home', 'work', 'pref'];
     this.adrtypes = ['home', 'work', 'pref'];
@@ -22,16 +23,15 @@ export class Contactedit {
       window.location = '#/contacts';
       return
     }
-
-    // Clone a working copy to bind to the inputs.
-    this.worknode = JSON.parse(JSON.stringify(this.appstate.editnode));
+    this.editnode = this.appstate.editnode;
+    // Clone a reversion copy of the node to edit.
+    this.reversioncopy = JSON.parse(JSON.stringify(this.appstate.editnode));
 
     return 
   }
 
   submit() {
-    // Replace the original node with the working copy.  Return to list view.
-    this.appstate.list.splice(this.appstate.editnodeindex,1,this.worknode);
+    // final validation
     window.location = '#/contacts';
   }
 }

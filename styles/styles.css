@@ -173,6 +173,20 @@ div.au-stagger {
     opacity: 1;
   }
 }
+.au-animate {
+  background-color: #fdfdfd;
+}
+#searchbox {
+  max-width: 23em;
+}
+.ccard {
+  background-color: #ffffff;
+/*  box-shadow: 5px 5px 2px #ddd;
+*/  border: 1px solid #ddd;
+  padding: 1em;
+  max-width: 23em;
+  margin-top: 1.3em;
+}
 .org {
   color: darkblue;
 }

@@ -27,11 +27,24 @@ export class Contactedit {
     // Clone a reversion copy of the node to edit.
     this.reversioncopy = JSON.parse(JSON.stringify(this.appstate.editnode));
 
+
+
     return 
   }
 
   submit() {
-    // final validation
+    // final validation goes here
+    this.returntolist();
+  }
+  revert() {
+    this.appstate.list.splice(this.appstate.editnodeindex,1,this.reversioncopy);
+    this.returntolist();
+  }
+  returntolist () {
+    //this.editnode = null;
+    this.appstate.editnode = null;
+    this.appstate.editnodeindex = -1;
     window.location = '#/contacts';
   }
+
 }

@@ -16,9 +16,10 @@ export class Contacts {
     //this.appstate.list[i].orgs[0] = 'updated';  //this will update the data but not force an update to the view
     this.appstate.editnode = c;
     this.appstate.editnodeindex = i;
-    window.location = '#/contactdetail';
+    window.location = '#/contactedit';
   }
 
+  // return true if a recursive search of obj finds an occurence of str (case insensitive) 
   search = function (obj, str) {
     var iter$ = function (a) { 
         return a ? (a.toArray ? a.toArray() : a) : []; 
@@ -37,11 +38,9 @@ export class Contacts {
             }
             return false;
         } else {  // search an non-array, non-null object
-            for (var j = 0, keys = Object.keys(obj), l = keys.length; j < l; j++) {
-                if (obj.hasOwnProperty(keys[j])) {
-                    if (this. search(obj[keys[j]],str)) {
-                        return true;
-                    }
+            for (var j = 0, keys = Object.keys(obj), l = keys.length; j < l; j++) {  //assumes obj.hasOwnProperty(keys[j] is always true
+                if (this. search(obj[keys[j]],str)) {
+                  return true;
                 }
             }
         }

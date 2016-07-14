@@ -26,9 +26,6 @@ export class Contactedit {
     this.editnode = this.appstate.editnode;
     // Clone a reversion copy of the node to edit.
     this.reversioncopy = JSON.parse(JSON.stringify(this.appstate.editnode));
-
-
-
     return 
   }
 

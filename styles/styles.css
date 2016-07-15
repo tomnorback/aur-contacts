@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: var(--main-bg-color);
 }
 
 .splash {
@@ -27,10 +28,11 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 50px;
+  top: 0px;
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: var(--main-bg-color);
 }
 
 @media print {
@@ -85,7 +87,7 @@ div.au-stagger {
   border-radius: 8px;
   text-align: center;
   padding: 0;
-  background-color: #337ab7;
+  background-color: #555;
   color: rgb(136, 172, 217);
   margin-bottom: 32px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .5);
@@ -174,27 +176,62 @@ div.au-stagger {
   }
 }
 .au-animate {
-  background-color: #fdfdfd;
+  background-color: var(--main-bg-color);
 }
+nav {
+  background-color: #3a3a3a;
+  color: white;
+}
+:root {
+  --main-bg-color: #252525;
+  --name-org-text: #dc7f39;
+}
+::-webkit-scrollbar              { background-color: #3a3a3a;}
+::-webkit-scrollbar-button       {}
+::-webkit-scrollbar-track        {}
+::-webkit-scrollbar-track-piece  {  }
+::-webkit-scrollbar-thumb        { background-color: var(--main-bg-color); border: 1px solid #3a3a3a;}
+::-webkit-scrollbar-corner       { /* 6 */ }
+::-webkit-resizer                { /* 7 */ }
+
+
+.navbarrow {
+  margin-top: 20px;
+  margin-left: 16px;
+  max-width: 23em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbarrow p {
+  font-size: x-large;
+  line-height: 100%;
+}
+
 #searchbox {
   max-width: 23em;
 }
+.listcontainer {
+  margin-top: 75px;
+}
 .ccard {
-  background-color: #ffffff;
+  background-color: var(--main-bg-color);
 /*  box-shadow: 5px 5px 2px #ddd;
-*/  border: 1px solid #ddd;
+*/  border: 1px solid #3a3a3a;
   padding: 1em;
   max-width: 23em;
   margin-top: 1.3em;
+  color: #dedede;
 }
-.org {
-  color: darkblue;
+.org, .name {
+  color: var(--name-org-text);
 }
 .typestring {
   font-size: small;
   font-variant: small-caps;
   padding-right: .5em;
-  color: #888;
+  color: #6aafda;
 }
 .typeset {
   padding-left: .5em;
@@ -210,6 +247,10 @@ div.au-stagger {
   justify-content: space-around;
   align-items: center;
   padding-top: 18px;
+}
+.adr {
+  font-size: smaller;
+  margin-bottom: 5px;
 }
 
 .editinput, .editinputtyped {

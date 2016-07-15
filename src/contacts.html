@@ -1,8 +1,14 @@
 <template>
   <section class="au-animate">
-    <h2>${heading}</h2>
-    <input id="searchbox" type="text" value.bind="searchString" class="form-control" id="fn" placeholder="Search Text">
-    <div class="ccard" repeat.for="contact of appstate.list" if.bind="search(contact, searchString)" click.trigger="details(contact, $index)">
+    <nav class="navbar  navbar-fixed-top">
+      <div class="navbarrow">
+      <p>${heading}<p>
+      <input id="searchbox" type="text" value.bind="searchString" class="form-control" id="fn" placeholder="Search Text" autofocus>
+      </div>
+    </nav>
+    <div class="listcontainer">
+    <div class="ccard" repeat.for="contact of appstate.list"  show.bind="search(contact, searchString)" click.trigger="details(contact, $index)" >
+    
       <p class="org" if.bind="contact.orgs.length">${contact.orgs}</p>
       <p class="name">
         <span class="givenNames" if.bind="contact.givenNames.length">${contact.givenNames} </span>
@@ -12,7 +18,25 @@
       <p class="tels" repeat.for="tel of contact.tels">
         <span class="url">${tel.url}</span>
         <span class="typestring" repeat.for="t of tel.type">${t}</span>
-      <p>
+      </p>
+      <p class="emails" repeat.for="email of contact.emails">
+        <span class="url">${email.url}</span>
+        <span class="typestring" repeat.for="t of email.type">${t}</span>
+      </p>
+      <div repeat.for="adr of contact.adrs" class="adr">
+        <div if.bind="adr.pobox" class="pobox">${adr.pobox}</div>
+        <div if.bind="adr.extendedAddress" class="extended-address">${adr.extendedAddress}</div>
+        <div if.bind="adr.streetAddress" class="street-address">${adr.streetAddress}</div>
+        <div>
+          <span if.bind="adr.locality" class="locality">${adr.locality}</span>
+          <span if.bind="adr.region" class="region">${adr.region}</span>
+          <span if.bind="adr.postalCode" class="postal-code">${adr.postalCode}</span>
+        </div>
+        <span if.bind="adr.country" class="country">${adr.country}</span>
+        <span repeat.for="t of adr.type" class="typestring">${t}</span>
+      </div>
+
+    </div>
     </div>
   </section>
 </template>

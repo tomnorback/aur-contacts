@@ -227,7 +227,7 @@ nav {
 .org, .name {
   color: var(--name-org-text);
 }
-.typestring {
+.typestring, .minorlabel {
   font-size: small;
   font-variant: small-caps;
   padding-right: .5em;
@@ -252,7 +252,12 @@ nav {
   font-size: smaller;
   margin-bottom: 5px;
 }
-
+.minor {
+  font-size: smaller;
+}
+.minor span::after {
+  content: " ";
+}
 .editinput, .editinputtyped {
   max-width: 30em;
   display: flex;

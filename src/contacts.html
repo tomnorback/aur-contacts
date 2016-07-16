@@ -35,6 +35,27 @@
         <span if.bind="adr.country" class="country">${adr.country}</span>
         <span repeat.for="t of adr.type" class="typestring">${t}</span>
       </div>
+      <div if.bind="contact.nicknames.length" class="nicknames minor">
+        <span class="minorlabel">nicknames:</span>
+        <span repeat.for="i of contact.nicknames">${i}</span>
+      </div>
+      <div if.bind="contact.roles.length" class="role minor">
+        <span class="minorlabel">roles:</span>
+        <span repeat.for="i of contact.roles">${i}</span>
+      </div>
+      <div if.bind="contact.notes.length" class="note minor">
+        <p repeat.for="i of contact.notes">
+          <span class="minorlabel">note:</span>
+          <span>${i}</span>
+        </p>
+      </div>
+      <div class="date minor">
+        <p repeat.for="i of contact.bdays">
+          <span>${i.date}</span>
+          <span repeat.for="t of i.type" class="typestring">${t}</span>
+        </p>
+      </div>
+
 
     </div>
     </div>
